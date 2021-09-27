@@ -9,6 +9,8 @@ const dark: DefaultTheme = {
     primary: '#66519E',
     background: '#1c1c1c',
     text: '#fff',
+    textsub: 'grey',
+    borderColor: '#ebc733',
   },
 };
 

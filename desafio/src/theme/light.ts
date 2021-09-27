@@ -9,6 +9,8 @@ const light: DefaultTheme = {
     primary: '#66519E',
     background: '#fff',
     text: '#1c1c1c',
+    textsub: 'grey',
+    borderColor: '#ebc733',
   },
 };
 

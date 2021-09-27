@@ -5,16 +5,16 @@ import * as S from './ButtonLogin.styles';
 interface IButtonLogin {
   width?: number;
   title: string;
-  loading?: boolean;
-  icon?: React.ReactNode;
   onPress: () => void;
 }
 
 const ButtonLogin = ({ width, title, onPress }: IButtonLogin) => {
   return (
+    <S.Container>
       <S.Button onPress={onPress} width={width}>
         <S.Text>{title}</S.Text>
       </S.Button>
+    </S.Container>
   );
 };
 

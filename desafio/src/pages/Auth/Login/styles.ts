@@ -3,57 +3,64 @@ import * as Window from '@mobile/services/dimensions';
 
 interface IProps {
   // interface para props
+  backGroundColor?: string;
   width?: number;
-  loading?: boolean;
-  disabled: boolean;
+  fontFamily?: string;
+  textSize?: number;
 }
+export const ScrollView = styled.ScrollView`
+  align-content: center;
+  background-color: ${(props: IProps) =>
+    props.backGroundColor ? props.backGroundColor : 'white'};
+`;
 
 export const Image = styled.ImageBackground`
-  width: 200;
-  height: 170;
+  width: ${({ width }: IProps) =>
+    width ? Window.widthScale(width) : Window.widthScale(0.45)}px;
+  height: ${Window.heightScale(0.25)};
   align-self: center;
-  margin-top: 20;
-`;
-
-export const MainText = styled.Text`
-  align-self: center;
-  color: white;
-  font-size: 20px;
-  font-family: 'Poppins-BoldItalic';
-  padding: 10px;
-`;
-
-export const SubText = styled.Text`
-  color: grey;
-  font-family: 'Poppins-BoldItalic';
-  font-size: 16px;
+  margin-top: ${Window.heightScale(0.04)};
 `;
 
 export const ViewMain = styled.View`
   background-color: ${({ theme }) => theme.colors.primary};
-
   align-self: center;
   justify-content: center;
   align-items: center;
 
   height: ${Window.heightScale(0.07)};
   width: ${({ width }: IProps) =>
-    width ? Window.widthScale(width) : Window.widthScale(0.7)}px;
+    width ? Window.widthScale(width) : Window.widthScale(0.8)}px;
   border-radius: ${Window.normalizeScale(10)}px;
-  margin-top: ${Window.heightScale(0.06)};
+  margin-top: ${Window.heightScale(0.04)};
 `;
 
-export const ViewSub = styled.View``;
+export const ViewSub = styled.View`
+  align-items: center;
+  align-self: center;
+  margin-top: ${Window.heightScale(0.04)};
+  width: ${({ width }: IProps) =>
+    width ? Window.widthScale(width) : Window.widthScale(0.85)}px;
+`;
+
+export const Link = styled.Text`
+  color: ${({ theme }) => theme.colors.textsub};
+  font-family: ${(props: IProps) => (props.fontFamily ? props.fontFamily : '')};
+  font-size: ${(props: IProps) =>
+    Window.fontScale(props.textSize ? props.textSize : (12 as number))}px;
+`;
+
 export const TextInput = styled.TextInput`
-  height: 40;
-  width: 350;
-  border-color: #ebc733;
-  border-width: 3;
-  margin-top: 10;
+  height: ${Window.heightScale(0.06)};
+  width: ${({ width }: IProps) =>
+    width ? Window.widthScale(width) : Window.widthScale(0.9)}px;
 
-  padding: 8px;
+  border-color:  ${({ theme }) => theme.colors.borderColor};
 
-  border-radius: 10;
+  border-width: ${Window.widthScale(0.005)};
+  border-radius: ${Window.normalizeScale(10)}px;
 
-  font-family: 'Poppins-BoldItalic';
+  margin-top: ${Window.heightScale(0.015)};
+  padding:  ${Window.heightScale(0.01)}px;
+
 `;

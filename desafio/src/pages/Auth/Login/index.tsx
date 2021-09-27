@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
-import { success, error, info } from '@mobile/services/Toast';
+import { success } from '@mobile/services/Toast';
 
 import * as S from './styles';
 import { images } from '../../../assets/images/images';
-import {
-  View,
-  ScrollView,
-  TouchableOpacity,
-  Image,
-  TextInput,
-  Linking,
-} from 'react-native';
+import { View, ScrollView, Linking } from 'react-native';
 
 import ButtonLogin from '../../../components/ButtonLogin/ButtonLogin';
 import Text from '../../../components/Text/Text';
@@ -24,42 +17,38 @@ const Login: React.FC = () => {
   };
 
   return (
-    <ScrollView style={{ alignContent: 'center', backgroundColor: 'white' }}>
+    <S.ScrollView backGroundColor="white">
       <S.Image source={images.mb.uri} />
 
-      {/*S.View > Text (template)*/}
       <S.ViewMain>
         <Text
-          text='ENTRE COM SUA CONTA'
-          textColor='white'
+          text="ENTRE COM SUA CONTA"
+          textColor="white"
           textSize={20}
+          fontFamily="Poppins-Bold"
         ></Text>
       </S.ViewMain>
 
-      <S.ViewSub
-        style={{
-          alignItems: 'center',
-          alignSelf: 'center',
-          marginTop: 20,
-          width: 350,
-        }}
-      >
-        <S.SubText>
-          Conecte-se a sua rede e explore milhares de projetos no mundo todo.
-        </S.SubText>
+      <S.ViewSub>
+        <Text
+          text="Conecte-se a sua rede e explore milhares de projetos no mundo todo."
+          textColor="black"
+          textSize={14}
+          fontFamily="Poppins-Light"
+        ></Text>
       </S.ViewSub>
 
-      <View style={{ alignItems: 'center', marginTop: 30 }}>
+      <S.ViewSub>
         <S.TextInput placeholder="Email" keyboardType="email-address" />
         <S.TextInput placeholder="Password" keyboardType="visible-password" />
-        <S.SubText onPress={() => Linking.openURL('http://mblabs.com.br')}>
-          esqueceu sua senha ?
-        </S.SubText>
-      </View>
 
-      {/*ButtonLogin*/}
-      <ButtonLogin title='Login' width={300} onPress={onPressLogin} />
-    </ScrollView>
+        <S.Link fontFamily="Poppins-Bold" onPress={() => Linking.openURL('http://mblabs.com.br')}>
+          esqueceu sua senha ?
+        </S.Link>
+      </S.ViewSub>
+
+      <ButtonLogin title="Login" width={300} onPress={onPressLogin} />
+    </S.ScrollView>
   );
 };
 

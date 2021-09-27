@@ -5,10 +5,7 @@ interface IProps {
   width?: number;
 }
 
-export const Container = styled.View`
-  align-items: center;
-  margin-top: ${Window.heightScale(0.07)};
-`;
+export const Container = styled.View``
 
 export const Button = styled.TouchableOpacity`
   width: ${({ width }: IProps) =>
@@ -16,6 +13,8 @@ export const Button = styled.TouchableOpacity`
 
   padding-vertical: ${Window.heightScale(0.01)}px;
   padding-horizontal: ${Window.heightScale(0.02)}px;
+
+  margin-top: ${Window.heightScale(0.06)};
 
   background-color: ${({ theme }) => theme.colors.primary};
 
