@@ -2,8 +2,8 @@ import React from 'react';
 
 import * as S from './Button.styles';
 
-interface IButton {
-  width?: number;
+interface IButton { // define interface (contrato) 
+  width?: number; // ?: não obrigatório
   title: string;
   loading?: boolean;
   disabled: boolean;
@@ -11,7 +11,7 @@ interface IButton {
   onPress: () => void;
 }
 
-const Button = ({
+const Button = ({ // componente Button do tipo IButton
   width,
   title,
   loading,
@@ -19,9 +19,10 @@ const Button = ({
   disabled,
   onPress,
 }: IButton) => {
+  
   return (
-    <S.Container>
-      <S.Button onPress={onPress} width={width} disabled={disabled}>
+    <S.Container> {/* view vazio */}
+      <S.Button onPress={onPress} width={width} disabled={disabled}> {/* props */}
         <S.Text>{title}</S.Text>
         {icon && null}
         {loading && <S.Loading animating={loading} />}

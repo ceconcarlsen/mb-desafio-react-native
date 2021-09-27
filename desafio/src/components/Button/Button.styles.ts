@@ -1,20 +1,22 @@
 import styled from 'styled-components/native';
-import * as Window from '@mobile/services/dimensions';
+import * as Window from '@mobile/services/dimensions'; // dimensões dinâmicas 
 
-interface IProps {
+interface IProps { // interface para props
   width?: number;
   loading?: boolean;
   disabled: boolean;
 }
 
+//sempre valores dinâmicos
+
 export const Container = styled.View``;
 
-export const Button = styled.TouchableOpacity.attrs({
-  activeOpacity: 0.7,
+export const Button = styled.TouchableOpacity.attrs({ // This is a chainable method that attaches some props to a styled component 
+  activeOpacity: 0.7, // merged into the rest of the component's props
 })`
   width: ${({ width }: IProps) =>
-    width ? Window.widthScale(width) : Window.widthScale(0.7)}px;
-  padding-vertical: ${Window.heightScale(0.01)}px;
+    width ? Window.widthScale(width) : Window.widthScale(0.7)}px;  
+  padding-vertical: ${Window.heightScale(0.01)}px; 
   background-color: ${({ theme }) => theme.colors.primary};
   justify-content: center;
   align-items: center;
@@ -28,4 +30,5 @@ export const Text = styled.Text`
   color: ${({ theme }) => theme.colors.text};
 `;
 
-export const Loading = styled.ActivityIndicator``;
+export const Loading = styled.ActivityIndicator``; 
+

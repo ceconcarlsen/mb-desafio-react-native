@@ -1,6 +1,14 @@
 import styled from 'styled-components/native';
+import * as Window from '@mobile/services/dimensions';
 
-export const ImageBackground = styled.ImageBackground`
+interface IProps {
+  // interface para props
+  width?: number;
+  loading?: boolean;
+  disabled: boolean;
+}
+
+export const Image = styled.ImageBackground`
   width: 200;
   height: 170;
   align-self: center;
@@ -21,19 +29,21 @@ export const SubText = styled.Text`
   font-size: 16px;
 `;
 
-export const View = styled.View`
-  background-color: #664c9c;
+export const ViewMain = styled.View`
+  background-color: ${({ theme }) => theme.colors.primary};
 
   align-self: center;
   justify-content: center;
   align-items: center;
 
-  height: 50;
-  width: 300;
-  border-radius: 20;
-  margin-top: 25;
+  height: ${Window.heightScale(0.07)};
+  width: ${({ width }: IProps) =>
+    width ? Window.widthScale(width) : Window.widthScale(0.7)}px;
+  border-radius: ${Window.normalizeScale(10)}px;
+  margin-top: ${Window.heightScale(0.06)};
 `;
 
+export const ViewSub = styled.View``;
 export const TextInput = styled.TextInput`
   height: 40;
   width: 350;
@@ -45,24 +55,5 @@ export const TextInput = styled.TextInput`
 
   border-radius: 10;
 
-  font-family: 'Poppins-BoldItalic';
-`;
-
-export const TouchableOpacity = styled.TouchableOpacity`
-  align-items: center;
-  background-color: #664c9c;
-  padding: 10px;
-
-  height: 50;
-  width: 200;
-
-  border-radius: 15;
-
-
-`;
-
-export const TextTouchableOpacity = styled.Text`
-  color: #ffff;
-  font-size: 20;
   font-family: 'Poppins-BoldItalic';
 `;
